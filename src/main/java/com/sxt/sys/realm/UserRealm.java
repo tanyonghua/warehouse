@@ -34,7 +34,7 @@ public class UserRealm extends AuthorizingRealm {
         User user = userService.getOne(queryWrapper);
         if(null!=user){
             ActiverUser activerUser = new ActiverUser();
-            //activerUser.setUser(user);
+            activerUser.setUser(user);
             //SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(activerUser);
         }
         return null;
