@@ -20,6 +20,8 @@ public class ActiverUser {
 
     private String username;
 
+    private String sex;
+
 }
 
 
