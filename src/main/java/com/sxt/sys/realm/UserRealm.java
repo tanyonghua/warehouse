@@ -7,9 +7,11 @@ import com.sxt.sys.service.UserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserRealm extends AuthorizingRealm {
@@ -35,7 +37,9 @@ public class UserRealm extends AuthorizingRealm {
         if(null!=user){
             ActiverUser activerUser = new ActiverUser();
             activerUser.setUser(user);
-            //SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(activerUser);
+            ByteSource credentialsSalt = ByteSource.Util.bytes(user.getSalt());
+            SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(activerUser,user.getPwd(),credentialsSalt,this.getName());
+            return info;
         }
         return null;
     }

@@ -18,9 +18,6 @@ public class ActiverUser {
 
     private List<String> pemissions;
 
-    private String username;
-
-    private String sex;
 
 }
 
