@@ -30,4 +30,11 @@ public class SystemController {
     public String toDeskManager(){
         return "system/index/deskManager";
     }
+    /**
+     * 登录日志页面
+     */
+    @RequestMapping("toLoginfoManager")
+    public String toLoginfoManager(){
+        return "system/loginfo/loginfoManager";
+    }
 }

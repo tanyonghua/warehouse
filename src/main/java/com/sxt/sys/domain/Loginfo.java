@@ -32,7 +32,7 @@ public class Loginfo implements Serializable {
 
     private String loginip;
 
-    private LocalDateTime logintime;
+    private Data logintime;
 
 
 }
