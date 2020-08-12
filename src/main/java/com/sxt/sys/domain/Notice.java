@@ -1,14 +1,13 @@
 package com.sxt.sys.domain;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import java.time.LocalDateTime;
+import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
-import java.util.Date;
 
 /**
  * <p>
@@ -16,24 +15,26 @@ import java.util.Date;
  * </p>
  *
  * @author Mr谭
- * @since 2020-08-11
+ * @since 2020-08-12
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("sys_loginfo")
-public class Loginfo implements Serializable {
+@TableName("sys_notice")
+public class Notice implements Serializable {
 
     private static final long serialVersionUID=1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    private String loginname;
+    private String title;
 
-    private String loginip;
+    private String content;
 
-    private Date logintime;
+    private LocalDateTime createtime;
+
+    private String opername;
 
 
 }
