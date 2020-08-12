@@ -22,4 +22,19 @@ public class SystemController {
     public String index(){
         return "system/index/index";
     }
+
+    /**
+     * 跳转到后台首页
+     */
+    @RequestMapping("toDeskManager")
+    public String toDeskManager(){
+        return "system/index/deskManager";
+    }
+    /**
+     * 登录日志页面
+     */
+    @RequestMapping("toLoginfoManager")
+    public String toLoginfoManager(){
+        return "system/loginfo/loginfoManager";
+    }
 }

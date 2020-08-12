@@ -29,7 +29,7 @@ public class LoginController {
             return ResultObj.LOGIN_SUCCESS;
         } catch (AuthenticationException e) {
             e.printStackTrace();
-            return ResultObj.LOGIN_SUCCESS_PASS;
+            return ResultObj.LOGIN_ERROR_PASS;
         }
     }
 }

@@ -1,10 +1,7 @@
 package com.sxt.sys.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.sxt.sys.common.Constast;
-import com.sxt.sys.common.DataGridView;
-import com.sxt.sys.common.TreeNode;
-import com.sxt.sys.common.WebUtils;
+import com.sxt.sys.common.*;
 import com.sxt.sys.domain.Permission;
 import com.sxt.sys.domain.User;
 import com.sxt.sys.service.PermissionService;
@@ -50,6 +47,7 @@ public class MenuController {
             Boolean spread = p.getOpen() == Constast.OPEN_TRUE ? true : false;
             treeNodes.add(new TreeNode(id,pid,title ,icon,href,spread));
         }
-        return null;
+        List<TreeNode> nodes = TreeNodeBuilder.build(treeNodes, 1);
+        return new DataGridView(nodes);
     }
 }

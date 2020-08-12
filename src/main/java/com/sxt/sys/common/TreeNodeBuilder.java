@@ -10,7 +10,7 @@ public class TreeNodeBuilder {
 	/**
 	 * 把没有层级关系的集合变成有层级关系的
 	 * @param treeNodes
-	 * @param topId
+	 * @param topPid
 	 * @return
 	 */
 	public static List<TreeNode> build(List<TreeNode> treeNodes,Integer topPid){
