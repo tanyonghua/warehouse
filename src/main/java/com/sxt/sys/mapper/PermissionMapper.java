@@ -3,6 +3,8 @@ package com.sxt.sys.mapper;
 import com.sxt.sys.domain.Permission;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
+import java.io.Serializable;
+
 /**
  * <p>
  *  Mapper 接口
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface PermissionMapper extends BaseMapper<Permission> {
 
+    void deleteRolePermissionByPid(Serializable id);
 }
