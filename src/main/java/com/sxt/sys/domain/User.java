@@ -1,6 +1,7 @@
 package com.sxt.sys.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -8,6 +9,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -42,7 +44,7 @@ public class User implements Serializable {
 
     private Integer deptid;
 
-    private Data hiredate;
+    private Date hiredate;
 
     private Integer mgr;
 
@@ -61,6 +63,17 @@ public class User implements Serializable {
     private String imgpath;
 
     private String salt;
+
+    /**
+     * 领导名称
+     */
+    @TableField(exist=false)
+    private String leadername;
+    /**
+     * 部门名称
+     */
+    @TableField(exist=false)
+    private String deptname;
 
 
 }

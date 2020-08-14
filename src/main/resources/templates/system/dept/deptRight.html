@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
+<html xmlns:th="http://www.thymeleaf.org" 
 	 xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
 <meta charset="UTF-8">
@@ -45,8 +45,10 @@
 		      </div>
 		    </div>
 			<div class="layui-inline">
-                <button type="button" class="layui-btn" lay-submit="" lay-filter="doSearch"><span class="layui-icon layui-icon-search"></span>查询</button>
-                <button type="reset" class="layui-btn layui-btn-warm"><span class="layui-icon layui-icon-refresh-1"></span>重置</button>
+				<div class="layui-input-block" >
+					<button type="button" class="layui-btn" lay-submit="" lay-filter="doSearch"><span class="layui-icon layui-icon-search"></span>查询</button>
+					<button type="reset" class="layui-btn layui-btn-warm"><span class="layui-icon layui-icon-refresh-1"></span>重置</button>
+				</div>
 			</div>
 		  </div>
 
@@ -61,7 +63,7 @@
 	<div id="deptToolBar" style="display: none;">
 		<button type="button" lay-event="add" shiro:hasPermission="dept:create" class="layui-btn layui-btn-sm"><span class="layui-icon layui-icon-add-1"></span>添加部门</button>
 	</div>
-
+	
 	<div id="deptRowBar" style="display: none;">
 		<button type="button" lay-event="update" shiro:hasPermission="dept:update" class="layui-btn layui-btn-sm"><span class="layui-icon layui-icon-edit"></span>更新</button>
 		<button type="button" lay-event="delete" shiro:hasPermission="dept:delete" class="layui-btn layui-btn-sm layui-btn-danger"><span class="layui-icon layui-icon-delete"></span>删除</button>
@@ -178,7 +180,7 @@ layui.extend({
 		        }
 		      }
 		});
-
+		
 		//模糊查询
 		form.on("submit(doSearch)",function(data){
 			tableIns.reload({
@@ -189,7 +191,7 @@ layui.extend({
 			});
 			return false;
 		});
-
+		
 		//监听工具条的事件
 		table.on("toolbar(deptTable)",function(obj){
 			 switch(obj.event){
@@ -198,7 +200,7 @@ layui.extend({
 			    break;
 			  };
 		});
-
+		
 		//监听行工具条的事件
 		table.on("tool(deptTable)",function(obj){
 			  var data = obj.data; //获得当前行数据
@@ -211,7 +213,7 @@ layui.extend({
 			    break;
 			  };
 		});
-
+		
 		var mainIndex;
 		var url;
 		//打开添加的弹出层
@@ -231,7 +233,7 @@ layui.extend({
 				}
 			});
 		}
-
+		
 		//打开修改的弹出层
 		function openUpdateDeptLayer(data){
 			mainIndex=layer.open({
@@ -245,7 +247,7 @@ layui.extend({
 					form.val("dataFrm",data);
 					//选中之前父级的部门  nodeId=data.pid;
 					dtree.dataInit("deptTree", data.pid);
-   					dtree.setSelectValue("deptTree");
+   					dtree.setSelectValue("deptTree"); 
 					url="/dept/updateDept";
 				}
 			});
@@ -262,11 +264,11 @@ layui.extend({
 				}
 				layer.msg(res.msg);
 				layer.close(mainIndex);
-			})
+			}) 
 		})
 		//删除
 		function deleteDept(data){
-
+			
 			$.post("/dept/checkDeptHasChildrenNode",{id:data.id},function(result){
 				if(result.value){
 					layer.msg("当前部门节点有子部门，请选择删除子部门");
@@ -281,13 +283,13 @@ layui.extend({
 								window.parent.left.deptTree.reload();
 							}
 							layer.msg(res.msg);
-						})
+						})	
 					   layer.close(index);
 					});
 				}
 			})
 		}
-
+		
 		//初始化下拉树
 		var selectTree=dtree.renderSelect({
 			  elem: "#deptTree",
@@ -303,7 +305,7 @@ layui.extend({
 			  console.log(obj.param.nodeId); // 点击当前节点传递的参数
 		});
 	});
-
+	
 	//给其它页面刷新当前页面数据表格的方法
 	function reloadTable(id){
 		tableIns.reload({

@@ -1,7 +1,7 @@
 package com.sxt.sys.service;
 
-import com.sxt.sys.domain.Dept;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.sxt.sys.domain.Dept;
 
 /**
  * <p>
@@ -12,5 +12,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2020-08-12
  */
 public interface DeptService extends IService<Dept> {
+
 
 }

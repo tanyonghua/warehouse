@@ -66,7 +66,7 @@ public class DeptController {
 
     /**
      * 加载最大的排序码
-     * @param deptVo
+     * @param
      * @return
      */
     @RequestMapping("loadDeptMaxOrderNum")
@@ -121,39 +121,7 @@ public class DeptController {
     }
 
 
-    /**
-     * 查询当前的ID的部门有没有子部门
-     */
-    @RequestMapping("checkDeptHasChildrenNode")
-    public Map<String,Object> checkDeptHasChildrenNode(DeptVo deptVo){
-        Map<String, Object> map=new HashMap<String, Object>();
 
-        QueryWrapper<Dept> queryWrapper=new QueryWrapper<>();
-        queryWrapper.eq("pid", deptVo.getId());
-        List<Dept> list = this.deptService.list(queryWrapper);
-        if(list.size()>0) {
-            map.put("value", true);
-        }else {
-            map.put("value", false);
-        }
-        return map;
-    }
-
-    /**
-     * 删除
-     * @param deptVo
-     * @return
-     */
-    @RequestMapping("deleteDept")
-    public ResultObj deleteDept(DeptVo deptVo) {
-        try {
-            this.deptService.removeById(deptVo.getId());
-            return ResultObj.DELETE_SUCCESS;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResultObj.DELETE_ERROR;
-        }
-    }
 
 }
 

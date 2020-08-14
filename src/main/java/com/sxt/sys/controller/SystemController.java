@@ -138,5 +138,22 @@ public class SystemController {
         return "system/role/roleManager";
     }
 
+    /**
+     * 跳转到用户管理
+     *
+     */
+    @RequestMapping("toUserManager")
+    public String toUserManager() {
+        return "system/user/userManager";
+    }
+    /**
+     * 跳转到缓存管理
+     *
+     */
+    @RequestMapping("toCacheManager")
+    public String toCacheManager() {
+        return "system/cache/cacheManager";
+    }
+
 
 }
