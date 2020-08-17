@@ -1,11 +1,13 @@
 package com.sxt.sys.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.sxt.sys.domain.User;
 import com.sxt.sys.mapper.UserMapper;
 import com.sxt.sys.service.UserService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -19,4 +21,23 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
+    @Override
+    public boolean save(User entity) {
+        return super.save(entity);
+    }
+
+    @Override
+    public boolean updateById(User entity) {
+        return super.updateById(entity);
+    }
+
+    @Override
+    public boolean removeById(Serializable id) {
+        return super.removeById(id);
+    }
+
+    @Override
+    public User getById(Serializable id) {
+        return super.getById(id);
+    }
 }
