@@ -2,7 +2,9 @@ package com.sxt.sys.service;
 
 import com.sxt.sys.domain.Role;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.apache.ibatis.annotations.Param;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -15,8 +17,10 @@ import java.util.List;
  */
 public interface RoleService extends IService<Role> {
 
-    List<Integer> queryRolePermissionIdsByRid(Integer roleId);
+    List<Integer> queryRolePermissionIdsByRid(@Param("roleId")Integer roleId);
 
-    void saveRolePermission(Integer rid, Integer[] ids);
+    void saveRolePermission(@Param("id")Integer rid, @Param("id")Integer[] ids);
 
+
+    void deleteRoleUserByUid(@Param("id") Serializable id);
 }

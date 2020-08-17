@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.sxt.sys.common.Constast;
 import com.sxt.sys.common.DataGridView;
+import com.sxt.sys.common.PinyinUtils;
 import com.sxt.sys.common.ResultObj;
 import com.sxt.sys.domain.Dept;
 import com.sxt.sys.domain.Role;
@@ -125,7 +126,7 @@ public class UserController {
     public Map<String,Object> changeChineseToPinyin(String username){
         Map<String,Object> map=new HashMap<>();
         if(null!=username) {
-           // map.put("value", PinyinUtils.getPingYin(username));
+            map.put("value", PinyinUtils.getPingYin(username));
         }else {
             map.put("value", "");
         }

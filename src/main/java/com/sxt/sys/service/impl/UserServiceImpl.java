@@ -3,7 +3,9 @@ package com.sxt.sys.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.sxt.sys.domain.User;
 import com.sxt.sys.mapper.UserMapper;
+import com.sxt.sys.service.RoleService;
 import com.sxt.sys.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +22,9 @@ import java.io.Serializable;
 @Service
 @Transactional
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+    
+    @Autowired
+    private RoleService roleService;
 
     @Override
     public boolean save(User entity) {
@@ -33,6 +38,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public boolean removeById(Serializable id) {
+        roleService.deleteRoleUserByUid(id);
         return super.removeById(id);
     }
 

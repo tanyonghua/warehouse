@@ -55,6 +55,11 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         }
     }
 
+    @Override
+    public void deleteRoleUserByUid(Serializable id) {
+        this.deleteRoleUserByUid(id);
+    }
+
     /**
      * 查询当前用户拥有的角色ID集合
      */
