@@ -23,4 +23,6 @@ public interface RoleService extends IService<Role> {
 
 
     void deleteRoleUserByUid(@Param("id") Serializable id);
+
+    List<Integer> queryUserRoleIdsByUid(@Param("id")Integer id);
 }

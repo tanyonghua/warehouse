@@ -2,6 +2,7 @@ package com.sxt.sys.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.sxt.sys.domain.User;
+import com.sxt.sys.mapper.RoleMapper;
 import com.sxt.sys.mapper.UserMapper;
 import com.sxt.sys.service.RoleService;
 import com.sxt.sys.service.UserService;
@@ -22,7 +23,10 @@ import java.io.Serializable;
 @Service
 @Transactional
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
-    
+
+    @Autowired
+    private RoleMapper roleMapper;
+
     @Autowired
     private RoleService roleService;
 
@@ -45,5 +49,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public User getById(Serializable id) {
         return super.getById(id);
+    }
+
+    @Override
+    public void saveUserRole(Integer uid, Integer[] ids) {
+        //根据用户ID删除sys_role_user里面的数据
+        this.roleMapper.deleteRoleUserByUid(uid);
+        if(null!=ids&&ids.length>0) {
+            for (Integer rid : ids) {
+                this.roleMapper.insertUserRole(uid,rid);
+            }
+        }
     }
 }

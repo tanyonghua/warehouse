@@ -55,6 +55,7 @@ public class RoleController {
         queryWrapper.eq(roleVo.getAvailable()!=null, "available", roleVo.getAvailable());
         queryWrapper.orderByDesc("createtime");
         this.roleService.page(page, queryWrapper);
+
         return new DataGridView(page.getTotal(), page.getRecords());
     }
 

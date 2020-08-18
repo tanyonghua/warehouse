@@ -32,8 +32,8 @@
 	</select>
 
     <!-- 保存角色和用户的关系 -->
-    <insert id="insertUserRole">
-		insert into sys_role_user(uid,rid) values(#{uid},#{rid})
-	</insert>
+<!--    <insert id="insertUserRole">-->
+<!--		insert into sys_role_user(uid,rid) values(#{uid},#{rid})-->
+<!--	</insert>-->
 
 </mapper>

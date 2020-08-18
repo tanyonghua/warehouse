@@ -57,7 +57,7 @@
 <div>
 	<table class="layui-hide" id="userTable" lay-filter="userTable"></table>
 	<div id="userToolBar" style="display: none;">
-		<button type="button" lay-event="add" class="layui-btn layui-btn-sm"><span class="layui-icon layui-icon-add-1"></span>添加用户</button>
+		<button type="button" lay-event="add"  class="layui-btn layui-btn-sm"><span class="layui-icon layui-icon-add-1"></span>添加用户</button>
 	</div>
 	
 	<div id="userRowBar" style="display: none;">
@@ -203,7 +203,7 @@ layui.extend({
 		      }}
 		      ,{field:'ordernum', title:'排序码',align:'center',width:'100'}
 		      ,{field:'imgpath', title:'用户头像',align:'center',width:'200'}
-		      ,{fixed: 'right', title:'操作', toolbar: '#userRowBar',align:'center',width:'400'}
+		      ,{fixed: 'right', title:'操作', toolbar: '#userRowBar',align:'center',width:'500'}
 		    ] ]
 		    ,done: function(res, curr, count){ //处理删除某一页最后一条数据的BUG
 		        if(res.data.length==0&&curr!=1){

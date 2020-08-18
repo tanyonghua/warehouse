@@ -2,6 +2,7 @@ package com.sxt.sys.mapper;
 
 import com.sxt.sys.domain.Role;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Insert;
 
 import java.io.Serializable;
 import java.util.List;
@@ -25,4 +26,9 @@ public interface RoleMapper extends BaseMapper<Role> {
     void saveRolePermission(Integer rid, Integer pid);
 
     List<Integer> queryUserRoleIdsByUid(Integer id);
+
+    void deleteRoleUserByUid(Integer uid);
+
+    @Insert("insert into sys_role_user(uid,rid) values(#{uid},#{rid})")
+    void insertUserRole(Integer uid, Integer rid);
 }

@@ -16,7 +16,7 @@ public class ActiverUser {
 
     private List<String> roles;
 
-    private List<String> pemissions;
+    private List<String> permissions;
 
 
 }

@@ -219,18 +219,18 @@ public class UserController {
         List<Map<String, Object>> listMaps = this.roleService.listMaps(queryWrapper);
 
         //2,查询当前用户拥有的角色ID集合
-//        List<Integer> currentUserRoleIds=this.roleService.queryUserRoleIdsByUid(id);
-//        for (Map<String, Object> map : listMaps) {
-//            Boolean LAY_CHECKED=false;
-//            Integer roleId=(Integer) map.get("id");
-//            for (Integer rid : currentUserRoleIds) {
-//                if(rid==roleId) {
-//                    LAY_CHECKED=true;
-//                    break;
-//                }
-//            }
-//            map.put("LAY_CHECKED", LAY_CHECKED);
-//        }
+        List<Integer> currentUserRoleIds=this.roleService.queryUserRoleIdsByUid(id);
+        for (Map<String, Object> map : listMaps) {
+            Boolean LAY_CHECKED=false;
+            Integer roleId=(Integer) map.get("id");
+            for (Integer rid : currentUserRoleIds) {
+                if(rid==roleId) {
+                    LAY_CHECKED=true;
+                    break;
+                }
+            }
+            map.put("LAY_CHECKED", LAY_CHECKED);
+        }
         return new DataGridView(Long.valueOf(listMaps.size()), listMaps);
     }
 
@@ -240,7 +240,7 @@ public class UserController {
     @RequestMapping("saveUserRole")
     public ResultObj saveUserRole(Integer uid, Integer[] ids) {
         try {
-          //  this.userService.saveUserRole(uid,ids);
+            this.userService.saveUserRole(uid,ids);
             return ResultObj.DISPATCH_SUCCESS;
         } catch (Exception e) {
             e.printStackTrace();
